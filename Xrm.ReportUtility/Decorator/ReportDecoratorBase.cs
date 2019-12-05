@@ -1,6 +1,7 @@
 ﻿namespace Xrm.ReportUtility
 {
-    public class ReportDecoratorBase: IReportCreator
+    public class ReportDecoratorBase: IReportCreator // базовый класс декоратора - определяет интерфейс обёртки для
+    // всех конкретных декораторов
     {
         protected readonly IReportCreator Decoratee;
 
