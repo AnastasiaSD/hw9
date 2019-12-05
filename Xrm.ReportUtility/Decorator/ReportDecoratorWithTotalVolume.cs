@@ -1,11 +1,11 @@
 ﻿namespace Xrm.ReportUtility
 {
-    public class ReportDecoratorWithTotalVolume : ReportDecoratorBase
+    public class ReportDecoratorWithTotalVolume : ReportDecoratorBase \\ конкретный декоратор 
     {
         public ReportDecoratorWithTotalVolume(IReportCreator report) : base(report)
         { }
 
-        public override ITable GetTable()
+        public override ITable GetTable() \\ вызывают обёрнутый объект (таблицу) и добавляет столбец «Суммарный объём» в отчёт
         {
             var table = base.GetTable();
             table.HeaderRow += "\tСуммарный объём";
