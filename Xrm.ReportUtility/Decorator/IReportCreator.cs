@@ -1,6 +1,7 @@
 ﻿namespace Xrm.ReportUtility
 {
-    public interface IReportCreator
+    public interface IReportCreator // Базовый интерфейс - определяет поведение, которое изменяется
+    // декораторами.
     {
         ITable GetTable();
     }
