@@ -1,6 +1,6 @@
 ﻿namespace Xrm.ReportUtility
 {
-    public class DecoratorBuilder
+    public class DecoratorBuilder // конструктор декораторов (навешивает тот декоратор, который мы вызовим, зависит от порядка вызова)
     {
         private IReportCreator _reportCreator;
 
