@@ -1,6 +1,6 @@
 ﻿namespace Xrm.ReportUtility
 {
-    public class ReportCreator : IReportCreator
+    public class ReportCreator : IReportCreator // базовый класс (на него навешиваются декораторы)
     {
         public ITable GetTable()
         {
