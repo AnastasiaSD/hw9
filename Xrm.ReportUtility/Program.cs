@@ -47,21 +47,21 @@ namespace Xrm.ReportUtility
         private static void PrintReport(Report report)
         {
             if (report.Config.WithData && report.Data != null && report.Data.Any())
-            {
-                var reportCreator = new ReportCreator();
-                var builder = new DecoratorBuilder(reportCreator);
+            { //----- далее код был переписан с использованием декоратора (реализация находится в папке "Decorator")
+                var reportCreator = new ReportCreator(); // создаем основу таблицы, на которую будем навешивать декораторы
+                var builder = new DecoratorBuilder(reportCreator); //конструктор, оборачивающий нашу таблицу в декораторы
 
-                if (report.Config.WithIndex)
+                if (report.Config.WithIndex)// добавляем декораторы в зависимости от их вызова
                     builder.WithIndex();
                 if (report.Config.WithTotalVolume)
                     builder.WithTotalVolume();
                 if (report.Config.WithTotalWeight)
                     builder.WithTotalWeight();
 
-                var tableWithDecoration = builder.Build();
-                var table = tableWithDecoration.GetTable();
+                var tableWithDecoration = builder.Build(); 
+                var table = tableWithDecoration.GetTable(); //получили измененную с помощью декораторов таблицу
                 Console.WriteLine(table);
-
+                //------ конец изменений
                 for (var i = 0; i < report.Data.Length; i++)
                 {
                     var dataRow = report.Data[i];
